@@ -1,0 +1,93 @@
+{
+  "projectType": "application",
+  "root": "apps/weather-now",
+  "sourceRoot": "apps/weather-now/src",
+  "prefix": "rafael-nunes-dev",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/weather-now",
+        "index": "apps/weather-now/src/index.html",
+        "main": "apps/weather-now/src/main.ts",
+        "polyfills": "apps/weather-now/src/polyfills.ts",
+        "tsConfig": "apps/weather-now/tsconfig.app.json",
+        "assets": [
+          "apps/weather-now/src/favicon.ico",
+          "apps/weather-now/src/assets"
+        ],
+        "styles": ["apps/weather-now/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/weather-now/src/environments/environment.ts",
+              "with": "apps/weather-now/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "weather-now:build:production"
+        },
+        "development": {
+          "browserTarget": "weather-now:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "weather-now:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/weather-now/src/**/*.ts",
+          "apps/weather-now/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/weather-now"],
+      "options": {
+        "jestConfig": "apps/weather-now/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
