@@ -1,1 +1,31 @@
-<p>card works!</p>
+<div class="card">
+  <div class="card-header">
+    {{ city.label }}
+  </div>
+
+  <div class="card-body" [ngClass]="city.temperature | temperatureColor">
+    <span>{{ city.temperature }}</span>
+    <span class="celsius-simbol">°</span>
+  </div>
+
+  <div class="card-footer">
+
+    <div class="footer-line detail" *ngIf="city.humidity">
+      <div>
+        <span> HUMIDITY </span>
+        <br>
+        <span class="detail-value">75</span>
+        <span class="detail-value-simbol">%</span>
+      </div>
+  
+      <div>
+        <span> PRESSURE </span>
+        <br>
+        <span class="detail-value">892</span>
+        <span class="detail-value-simbol">hPa</span>
+      </div>
+    </div>
+
+    <div class="footer-line">Updated at 55:55:55 PM</div>
+  </div>
+</div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CityWeather } from '../main/main.component';
 
 @Component({
   selector: 'rafael-nunes-dev-card',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
+
+  @Input()
+  city: CityWeather;
 
   constructor() { }
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class CurrentWeatherService {
-  constructor(http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 }

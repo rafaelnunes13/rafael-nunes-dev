@@ -1,0 +1,5 @@
+::ng-deep body {
+  font-family: Helvetica, Arial, sans-serif;
+  height: 100vh;
+  background-color: #f1f1f1;
+}
