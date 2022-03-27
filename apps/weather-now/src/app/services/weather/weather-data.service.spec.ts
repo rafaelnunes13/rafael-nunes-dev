@@ -26,7 +26,7 @@ describe('WeatherDataService', () => {
       done();
     });
 
-    httpController.expectOne(BASE_URL).flush(
+    httpController.expectOne((req => req.url === BASE_URL)).flush(
       {
         name: 'City Name',
         sys: {

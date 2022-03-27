@@ -8,7 +8,7 @@ import { CardComponent } from './card.component';
 
 @Pipe({ name: 'temperatureColor' })
 class MockTemperatureColorPipe implements PipeTransform {
-  transform(value: number): string {
+  transform(): string {
     return 'class';
   }
 }

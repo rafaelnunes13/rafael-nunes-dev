@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { CacheDataService, ICacheEntry } from '../../services/cache/cache-data.service';
-import { IWeatherData } from '../../services/weather/weather-data.interface';
+import { Component } from '@angular/core';
 
 export interface ICityWeather {
   key: string,
