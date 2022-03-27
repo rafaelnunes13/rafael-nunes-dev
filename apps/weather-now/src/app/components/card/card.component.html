@@ -1,31 +1,40 @@
 <div class="card">
   <div class="card-header">
-    {{ city.label }}
+    {{ entry.name }}
   </div>
 
-  <div class="card-body" [ngClass]="city.temperature | temperatureColor">
-    <span>{{ city.temperature }}</span>
-    <span class="celsius-simbol">°</span>
-  </div>
-
-  <div class="card-footer">
-
-    <div class="footer-line detail" *ngIf="city.humidity">
-      <div>
-        <span> HUMIDITY </span>
-        <br>
-        <span class="detail-value">75</span>
-        <span class="detail-value-simbol">%</span>
+  <div *ngIf="(data$ | async) as cityData; else loading">
+    <div class="card-body" [ngClass]="cityData.data.main.temp | temperatureColor">
+      <span>{{ cityData.data.main.temp | number: '1.0-0' }}</span>
+      <span class="celsius-simbol">°</span>
+    </div>
+  
+    <div class="card-footer">
+  
+      <div class="footer-line detail">
+        <div *ngIf="cityData.data.main.humidity">
+          <span> HUMIDITY </span>
+          <br>
+          <span class="detail-value">{{ cityData.data.main.humidity }}</span>
+          <span class="detail-value-simbol">%</span>
+        </div>
+    
+        <div *ngIf="cityData.data.main.pressure">
+          <span> PRESSURE </span>
+          <br>
+          <span class="detail-value">{{ cityData.data.main.pressure }}</span>
+          <span class="detail-value-simbol">hPa</span>
+        </div>
       </div>
   
-      <div>
-        <span> PRESSURE </span>
-        <br>
-        <span class="detail-value">892</span>
-        <span class="detail-value-simbol">hPa</span>
-      </div>
+      <div class="footer-line">Updated at {{ cityData.updatedAt | date: 'mediumTime' }}</div>
     </div>
-
-    <div class="footer-line">Updated at 55:55:55 PM</div>
   </div>
+
+  <ng-template #loading>
+    <div class="card-body">
+      <img src="../../../assets/loader.svg">
+    </div>
+  </ng-template>
+
 </div>

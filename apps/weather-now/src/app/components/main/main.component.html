@@ -1,7 +1,8 @@
 <main class="main-content">
-  <rafael-nunes-dev-card [city]="cities[0]" class="item1"></rafael-nunes-dev-card>
-
-  <rafael-nunes-dev-card [city]="cities[1]" class="item2"></rafael-nunes-dev-card>
-
-  <rafael-nunes-dev-card [city]="cities[2]" class="item3"></rafael-nunes-dev-card>
+  <ng-template ngFor let-entry [ngForOf]="data" let-index="index">
+    <rafael-nunes-dev-card
+      [ngClass]="'item' + (index + 1)"
+      [entry]="entry">
+    </rafael-nunes-dev-card>
+  </ng-template>
 </main>

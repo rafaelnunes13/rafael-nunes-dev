@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CityWeather } from '../main/main.component';
+import { Observable } from 'rxjs';
+import { CacheDataService, ICacheEntry } from '../../services/cache/cache-data.service';
+import { IWeatherData } from '../../services/weather/weather-data.interface';
+import { ICityWeather } from '../main/main.component';
 
 @Component({
   selector: 'rafael-nunes-dev-card',
@@ -9,11 +12,13 @@ import { CityWeather } from '../main/main.component';
 export class CardComponent implements OnInit {
 
   @Input()
-  city: CityWeather;
+  entry: ICityWeather;
 
-  constructor() { }
+  data$: Observable<ICacheEntry<IWeatherData>>;
+
+  constructor(private cacheDataService: CacheDataService) { }
 
   ngOnInit(): void {
+    this.data$ = this.cacheDataService.get(this.entry.key);
   }
-
 }

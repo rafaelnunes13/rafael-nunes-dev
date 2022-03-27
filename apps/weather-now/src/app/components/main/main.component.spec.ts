@@ -1,6 +1,15 @@
+import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainComponent } from './main.component';
+import { ICityWeather, MainComponent } from './main.component';
+
+@Component({
+  selector: 'rafael-nunes-dev-card',
+})
+class CardComponent {
+  @Input()
+  entry: ICityWeather;
+}
 
 describe('MainComponent', () => {
   let component: MainComponent;
@@ -8,7 +17,7 @@ describe('MainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MainComponent ]
+      declarations: [ MainComponent, CardComponent ]
     })
     .compileComponents();
   });

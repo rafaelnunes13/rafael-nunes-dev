@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CacheDataService, ICacheEntry } from '../../services/cache/cache-data.service';
+import { IWeatherData } from '../../services/weather/weather-data.interface';
 
-export interface CityWeather {
-  label: string;
-  lat: string;
-  long: string;
-  temperature: number;
-  humidity?: number;
-  pressure?: number;
+export interface ICityWeather {
+  key: string,
+  name: string;
 }
 
 @Component({
@@ -14,17 +13,11 @@ export interface CityWeather {
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit {
+export class MainComponent {
 
-  cities: Array<CityWeather> = [
-    { label: 'Nuuk, GL', lat: '', long: '', temperature: -4 },
-    { label: 'Urubici, BR', lat: '', long: '', temperature: 19, humidity: 75, pressure: 892 },
-    { label: 'Nairobi, KE', lat: '', long: '', temperature: 31 },
+  data: Array<ICityWeather> = [
+    { key: 'nuuk', name: 'Nuuk, GL' },
+    { key: 'urubici', name: 'Urubici, BR' },
+    { key: 'nairobi', name: 'Nairobi, KE' }
   ];
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

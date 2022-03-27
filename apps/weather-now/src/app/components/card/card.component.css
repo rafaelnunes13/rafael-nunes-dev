@@ -1,13 +1,13 @@
 
-.card {
+div.card {
   width: 250px;
   text-align: center;
-  margin: 8px;
   box-shadow: 2px 2px 2px 2px rgba(51, 51, 51, 0.1);
   border-radius: 5px;
+  margin: 16px;
 }
 
-.card-header {
+div.card > div.card-header {
   height: 32px;
   width: 100%;
   font-size: 16px;
@@ -20,7 +20,7 @@
   border-radius: 5px;
 }
 
-.card-body {
+div.card > div > div.card-body {
   height: 150px;
   width: 100%;
   background-color: #fff;
@@ -30,12 +30,12 @@
   align-items: center;
 }
 
-.celsius-simbol {
+div.card > div > div.card-body > span.celsius-simbol {
   font-size: 42px;
-  height: 80px;
+  height: 72px;
 }
 
-.card-footer {
+div.card > div > div.card-footer {
   background-color: rgba(241, 241, 241, 0.5);
   display: block;
   color: rgba(115, 124, 132, 0.5);
@@ -43,24 +43,24 @@
   padding: 16px 0 16px 0;
 }
 
-.footer-line {
+div.card > div > div.card-footer > div.footer-line {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.detail {
+div.card > div > div.card-footer > div.detail {
   margin-bottom: 8px;
   font-size: 12px;
 }
 
-.detail-value {
+div.card > div > div.card-footer > div.detail > div > span.detail-value {
   font-size: 16px;
   color: #737c84;
 }
 
-.detail-value-simbol {
+div.card > div > div.card-footer > div.detail > div > span.detail-value-simbol {
   font-size: 12px;
   color: #737c84;
 }
