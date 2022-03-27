@@ -23,11 +23,14 @@ export class WeatherDataService {
   constructor(private http: HttpClient) {}
 
   get(key: string): Observable<IWeatherData> {
-    const params = new HttpParams();
-    params.append('lat', citiesCoords[key].lat);
-    params.append('lon', citiesCoords[key].lon);
-    params.append('appid', APPID);
-    params.append('units', 'metric');
-    return this.http.get<IWeatherData>(BASE_URL, { params });
+    const params = new HttpParams({
+      fromObject: {
+        lat: citiesCoords[key].lat,
+        lon: citiesCoords[key].lon,
+        appid: APPID,
+        units: 'metric',
+      }
+    });
+    return this.http.get<IWeatherData>(BASE_URL, { params: params });
   }
 }

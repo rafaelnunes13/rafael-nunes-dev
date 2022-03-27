@@ -65,6 +65,16 @@ div.card > div > div.card-footer > div.detail > div > span.detail-value-simbol {
   color: #737c84;
 }
 
+div.card > div.card-loading {
+  height: 150px;
+  width: 100%;
+  background-color: #fff;
+  font-size: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .low-temperature {
   color: #69a3ff;
 }

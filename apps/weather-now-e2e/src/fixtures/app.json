@@ -1,0 +1,15 @@
+{
+
+  "firstCard": {
+    "headerLabel": "Nuuk, GL",
+    "selector": ".item1"
+  },
+  "secondCard": {
+    "headerLabel": "Urubici, BR",
+    "selector": ".item2"
+  },
+  "thirdCard": {
+    "headerLabel": "Nairobi, KE",
+    "selector": ".item3"
+  }
+}
